@@ -1,0 +1,85 @@
+﻿@model ActivityClub.Models.User
+
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Activity Club Portal</title>
+    <link rel="stylesheet" href="~/css/sp.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/Home/Index" class="logo-link">
+                <img src="/images/favicon.png" class="logo-image" />
+                <div class="logo">Beirut Activity Club</div>
+            </a>
+            <ul>
+                <li><a href="/Home/Index">Home</a></li>
+                <li><a href="/Account/Login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="signup">
+        <div class="signup-container">
+            <h2>Create Your Account</h2>
+            <form id="signupForm" asp-action="Signup" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="input-group">
+                    <label asp-for="UserName">User Name:</label>
+                    <input asp-for="UserName" required>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <label asp-for="DateOfBirth">Date of Birth:</label>
+                    <input asp-for="DateOfBirth" type="date">
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="input-group">
+                    <label asp-for="Gender">Gender:</label>
+                    <select asp-for="Gender">
+                        <option value="">Select Gender</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="input-group password-group">
+                    <label asp-for="Email">Email:</label>
+                    <input asp-for="Email" type="email" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="input-group password-group">
+                    <label asp-for="Pass">Password:</label>
+                    <div class="password-wrapper">
+                        <input asp-for="Pass" id="password" type="password" required>
+                        <span class="toggle-password fas fa-eye" toggle="#password"></span>
+                    </div>
+                    <span asp-validation-for="Pass" class="text-danger"></span>
+                </div>
+                <div class="input-group password-group">
+                    <label asp-for="ConfirmPassword">Confirm Password:</label>
+                    <div class="password-wrapper">
+                        <input asp-for="ConfirmPassword" id="confirmPassword" type="password" required>
+                        <span class="toggle-password fas fa-eye" toggle="#confirmPassword"></span>
+                    </div>
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <input type="hidden" asp-for="UserRole" value="User" />
+                <button type="submit" class="signup-button">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="/Account/Login">Login</a></p>
+        </div>
+    </section>
+
+    <script src="~/js/sp.js"></script>
+</body>
+</html>

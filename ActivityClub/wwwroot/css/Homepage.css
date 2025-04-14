@@ -1,0 +1,526 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Google Sans', sans-serif;
+    color: #333;
+    background: white !important;
+ 
+    
+}
+#profile-img {
+    width: 50px;
+    height: 50px;
+    border-end-start-radius: 200px;
+    border-end-end-radius: 200px;
+    border-start-start-radius: 20px;
+    border-start-end-radius: 20px
+}
+
+    #profile-img:hover {
+        background: white;
+    }
+
+header {
+    background: #202124;
+    color: white;
+    padding: 1rem 2rem;
+    flex-shrink: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    nav .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+
+    nav .logo-image {
+        width: 60px;
+        height: 60px;
+    }
+
+.logo-link {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    color: white;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+    margin-right: 100px;
+}
+
+    nav ul li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+        nav ul li img.profile-pic {
+            margin-left: 0.5rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+            nav ul li a:hover {
+                color: red;
+            }
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 6 0vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    font-size: 20pt;
+    margin-top: -64px;
+    overflow: hidden;
+}
+
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+        .hero img.active {
+            opacity: 1;
+        }
+
+.hero-content {
+    padding: 2rem;
+    margin-bottom: 110px;
+    
+}
+
+.cta-button {
+    --color: white;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+}
+
+    .cta-button::before, .cta-button::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 50px;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        border-radius: 50%;
+        z-index: -1;
+        background-color: var(--color);
+        transition: 1s ease;
+    }
+
+    .cta-button::before {
+        top: -1em;
+        left: -1em;
+    }
+
+    .cta-button::after {
+        left: calc(100% + 1em);
+        top: calc(100% + 1em);
+    }
+
+    .cta-button:hover::before, .cta-button:hover::after {
+        height: 410px;
+        width: 410px;
+    }
+
+    .cta-button:hover {
+        color: #202124;
+    }
+
+    .cta-button:active {
+        filter: brightness(.8);
+    }
+
+.content-section {
+    padding: 4rem 0rem;
+    flex: 1;
+}
+
+.events, .activities {
+    padding: 4rem 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.event-grid, .activity-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.event-card, .activity-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 300px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .event-card:hover, .activity-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .event-card img, .activity-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+
+footer {
+    background: #202124;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 20px;
+}
+
+.quick-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+    .quick-links li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+.contact-info, .social-media {
+    text-align: center;
+}
+
+    .social-media a {
+        color: #fff;
+        margin: 0 0.5rem;
+        text-decoration: none;
+    }
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .about-container h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: red;
+    }
+
+    .about-container p {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .about-container h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: red;
+    }
+
+.team-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    margin-bottom: 2rem;
+}
+
+    .team-member img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+    }
+
+    .team-member h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: red;
+    }
+
+    .team-member p {
+        font-size: 1rem;
+        color: #666;
+    }
+
+
+
+    ul {
+        list-style: none;
+    }
+
+.example-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .example-2 .icon-content {
+        margin: 0 10px;
+        position: relative;
+    }
+
+        .example-2 .icon-content .tooltip {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .example-2 .icon-content:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            top: -50px;
+        }
+
+        .example-2 .icon-content a {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: #4d4d4d;
+            background-color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .example-2 .icon-content a:hover {
+                box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+            }
+
+            .example-2 .icon-content a svg {
+                position: relative;
+                z-index: 1;
+                width: 30px;
+                height: 30px;
+            }
+
+            .example-2 .icon-content a:hover {
+                color: white;
+            }
+
+            .example-2 .icon-content a .filled {
+                position: absolute;
+                top: auto;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 0;
+                background-color: #000;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .example-2 .icon-content a:hover .filled {
+                height: 100%;
+            }
+
+            .example-2 .icon-content a[data-social="instagram"] .filled,
+            .example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+                background: linear-gradient( 45deg, #405de6, #5b51db, #b33ab4, #c135b4, #e1306c, #fd1f1f );
+            }
+
+            .example-2 .icon-content a[data-social="facebook"] .filled,
+            .example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+                background-color: #0866FF;
+            }
+
+.management-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    .management-table th, .management-table td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        text-align: left;
+    }
+
+    .management-table th {
+        background-color: #333;
+        color: #fff;
+    }
+
+    .management-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+.btn {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+    }
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+
+
+.contact-content-section {
+    display: none; /* initially hidden, toggle this in JavaScript or as needed */
+    background-color: #f4f4f4;
+    padding: 40px 0;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.contact-container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    margin: 10px;
+    font-size: 16px;
+}
+
+
+.contact-form {
+    margin-top: 30px;
+}
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 80%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-form button {
+        background-color: #202124;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+        .contact-form button:hover {
+            background-color: red;
+        }

@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="home" class="content-section">
+    
+    <div class="hero">
+        <img src="/images/Hiking.png" alt="Activity1" class="active">
+        <img src="/images/party.jpg" alt="Activity2">
+        <img src="/images/hero2.jpg" alt="Activity3">
+        <img src="/images/hero3.jpg" alt="Activity4">
+        <img src="/images/meet.jpg" alt="Activity5">
+        <div class="hero-content">
+            <h1>Welcome to Beirut Activity Club</h1>
+            <p>Join us for exciting activities and events</p>
+            <button id="apply-button" class="cta-button" onclick="applyForEvent()">Join the Club and be a member</button>
+        </div>
+    </div>
+   
+
+    <section class="events">
+        <h2>Upcoming Events</h2>
+        <div class="event-grid">
+            <div class="event-card">
+                <img src="~/images/event1.jpg" alt="Event 1">
+                <h3>Event Title 1</h3>
+                <p>Event description goes here.</p>
+            </div>
+            <div class="event-card">
+                <img src="~/images/event2.jpg" alt="Event 2">
+                <h3>Event Title 2</h3>
+                <p>Event description goes here.</p>
+            </div>
+            <div class="event-card">
+                <img src="~/images/event3.jpg" alt="Event 3">
+                <h3>Event Title 3</h3>
+                <p>Event description goes here.</p>
+            </div>
+        </div>
+    </section>
+    <section class="activities">
+        <h2>Featured Activities</h2>
+        <div class="activity-grid">
+            <div class="activity-card">
+                <img src="~/images/activity1.jpg" alt="Activity 1">
+                <h3>Activity Title 1</h3>
+                <p>Activity description goes here.</p>
+            </div>
+            <div class="activity-card">
+                <img src="~/images/activity2.jpg" alt="Activity 2">
+                <h3>Activity Title 2</h3>
+                <p>Activity description goes here.</p>
+            </div>
+            <div class="activity-card">
+                <img src="~/images/activity3.jpg" alt="Activity 3">
+                <h3>Activity Title 3</h3>
+                <p>Activity description goes here.</p>
+            </div>
+        </div>
+    </section>
+</section>
+<section id="about" class="content-section" style="display: none;">
+    <div class="about-container">
+        <h2>About Us</h2>
+        <p>Welcome to Beirut Activity Club! We are a community-driven organization focused on providing a wide range of activities and events for all ages. Our mission is to bring people together, promote healthy lifestyles, and create memorable experiences through various activities including sports, arts, and social events.</p>
+        
+        <h3>Our Team</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="~/images/team1.jpg" alt="Team Member 1">
+                <h4>Mohammed Osman</h4>
+                <p>Founder and President</p>
+            </div>
+            <div class="team-member">
+                <img src="~/images/team2.jpg" alt="Team Member 2">
+                <h4>Ali Osman</h4>
+                <p>Event Coordinator</p>
+            </div>
+           
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-content-section">
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p>We're here to help! Reach out to us through any of the methods below, and we'll get back to you as soon as possible.</p>
+        <div class="contact-details">
+            <div class="contact-info">
+                <h3>Call Us</h3>
+                <p>+961 12345678</p>
+            </div>
+            <div class="contact-info">
+                <h3>Email Us</h3>
+                <p>info@bac.com.lb</p>
+            </div>
+            <div class="contact-info">
+                <h3>Visit Us</h3>
+                <p>Lebanon, Beirut</p>
+            </div>
+        </div>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<script src="~/js/HomePage.js"></script>

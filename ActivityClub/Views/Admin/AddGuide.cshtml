@@ -1,0 +1,24 @@
+﻿@model ActivityClub.Models.Guide
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    ViewData["Title"] = "Add Guide";
+
+}
+
+<h2>Add Guide</h2>
+
+<form asp-action="AddGuide" asp-controller="Admin" method="post">
+    <div class="form-group">
+        <label asp-for="FullName">Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Guide</button>
+</form>

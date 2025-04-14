@@ -1,0 +1,206 @@
+﻿@model ActivityClub.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="profile-section">
+    <div id="profile-container">
+        <div class="profile-header">
+            <h2>Your Profile</h2>
+            <button class="edit-button" onclick="location.href='@Url.Action("UpdateProfile", "Profile")'">Edit Profile</button>
+            <a href="/Account/Logout" class="logout-button">Logout</a>
+        </div>
+        <div id="profile-info">
+            <div class="profile-row">
+                <label>User Name:</label>
+                <p>@Model.UserName</p>
+            </div>
+            <div class="profile-row">
+                <label>Date of Birth:</label>
+                <p>@Model.DateOfBirth?.ToString("yyyy-MM-dd")</p>
+            </div>
+            <div class="profile-row">
+                <label>Gender:</label>
+                <p>@Model.Gender</p>
+            </div>
+            <div class="profile-row">
+                <label>Email:</label>
+                <p>@Model.Email</p>
+            </div>
+            <div class="profile-row">
+                <label>Role:</label>
+                <p>@Model.UserRole</p>
+            </div>
+        </div>
+
+        <h2>Events Joined</h2>
+        @if (Model.EventMembers.Any())
+        {
+            <div class="events-joined">
+                @foreach (var eventMember in Model.EventMembers)
+                {
+                    <div class="event-item">
+                        <h3>@eventMember.Event.EventName</h3>
+                        <p>@eventMember.Event.EventDes</p>
+                        <p><strong>Category:</strong> @(eventMember.Event.CategoryLookup?.LookupName ?? "No Category")</p>
+                        <p><strong>Destination:</strong> @eventMember.Event.Destination</p>
+                        <p><strong>Date From:</strong> @eventMember.Event.DateFrom.ToShortDateString()</p>
+                        <p><strong>Date To:</strong> @eventMember.Event.DateTo.ToShortDateString()</p>
+                        <p><strong>Cost:</strong> @eventMember.Event.Cost.ToString("C")</p>
+                        <p><strong>Status:</strong> @eventMember.Event.Stat</p>
+                        <form asp-action="Cancel" method="post" class="cancel-form">
+                            <input type="hidden" name="eventId" value="@eventMember.EventID" />
+                            <button type="submit" class="cancel-btn">Cancel Registration</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No events joined.</p>
+        }
+    </div>
+</section>
+
+<style>
+    body {
+        background-color: #f4f4f9;
+        color: #333;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profile-section {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    #profile-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        max-width: 800px;
+        width: 100%;
+    }
+
+    .profile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+        .profile-header h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+    .edit-button, .logout-button {
+        padding: 0.5rem 1rem;
+        margin-left: 1rem;
+        text-align: center;
+        background-color: #202124;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .logout-button {
+        background-color: red;
+    }
+
+        .edit-button:hover, .logout-button:hover {
+            background-color: #333;
+        }
+
+        .logout-button:hover {
+            background-color: #c82333;
+        }
+
+    #profile-info {
+        margin-bottom: 2rem;
+    }
+
+    .profile-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eaeaea;
+    }
+
+        .profile-row label {
+            font-weight: bold;
+        }
+
+        .profile-row p {
+            margin: 0;
+        }
+
+    .events-joined {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .event-item {
+        background: #f9f9f9;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        min-width: 250px;
+        margin-bottom: 1rem;
+    }
+
+        .event-item h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+            color: #202124;
+        }
+
+        .event-item p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+
+    .cancel-form {
+        margin-top: 1rem;
+    }
+
+    .cancel-btn {
+        background: #202124;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+        .cancel-btn:hover {
+            background: red;
+        }
+
+    footer {
+        background: #202124;
+        color: #fff;
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+        margin-top: auto;
+    }
+</style>

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Admin</title>
+    <link rel="stylesheet" href="~/css/AdminDashboard.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <img src="/images/favicon.png" class="logo-image" />
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Website Home</a>
+                    <a class="nav-link" href="@Url.Action("ManageAll", "Admin")">Manage All</a>
+                    <a class="nav-link" href="@Url.Action("CreateEvent", "Admin")">Create Event</a>
+                    <a class="nav-link" href="@Url.Action("#", "Admin")">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

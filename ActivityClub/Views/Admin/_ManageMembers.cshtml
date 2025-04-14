@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ActivityClub.Models.Member>
+
+<h2 class="mt-4">Manage Members</h2>
+<table class="management-table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Profession</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model)
+        {
+            <tr>
+                <td>@member.FullName</td>
+                <td>@member.Email</td>
+                <td>@member.MobileNumber</td>
+                <td>@member.Profession</td>
+                <td>
+                    <a href="@Url.Action("EditMember", "Admin", new { id = member.MemberID })" class="btn btn-secondary btn-sm">Edit</a>
+                    <a href="@Url.Action("DeleteMember", "Admin", new { id = member.MemberID })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

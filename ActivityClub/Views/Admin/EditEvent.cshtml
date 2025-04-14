@@ -1,0 +1,58 @@
+﻿@model ActivityClub.Models.Event
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    ViewData["Title"] = "Edit Event";
+}
+
+<h2>Edit Event</h2>
+
+<form asp-action="EditEvent">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="EventID" />
+    <div class="form-group">
+        <label asp-for="EventName" class="control-label">Event Name</label>
+        <input asp-for="EventName" class="form-control" />
+        <span asp-validation-for="EventName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EventDes" class="control-label">Description</label>
+        <textarea asp-for="EventDes" class="form-control"></textarea>
+        <span asp-validation-for="EventDes" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CategoryLookup" class="control-label">Category</label>
+        <textarea asp-for="CategoryLookup" class="form-control"></textarea>
+        <span asp-validation-for="CategoryLookup" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Destination" class="control-label"></label>
+        <textarea asp-for="Destination" class="form-control"></textarea>
+        <span asp-validation-for="Destination" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateFrom" class="control-label">Date-From</label>
+        <textarea asp-for="DateFrom" class="form-control"></textarea>
+        <span asp-validation-for="DateFrom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DateTo" class="control-label">Date-To</label>
+        <textarea asp-for="DateTo" class="form-control"></textarea>
+        <span asp-validation-for="DateTo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cost" class="control-label">Cost $</label>
+        <textarea asp-for="Cost" class="form-control"></textarea>
+        <span asp-validation-for="Cost" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Stat" class="control-label">Status</label>
+        <textarea asp-for="Stat" class="form-control"></textarea>
+        <span asp-validation-for="Stat" class="text-danger"></span>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Save changes</button>
+</form>
+
+<a asp-action="ManageAll">Back to list</a>
